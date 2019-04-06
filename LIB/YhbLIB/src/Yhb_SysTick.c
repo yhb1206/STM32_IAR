@@ -4,7 +4,7 @@
 #include "misc.h"
  
 /**
-  * @brief  不开中断的 SysTick
+  * @brief  不开中断的 SysTick的配置
   * @param  无
   * @retval 无
   */
@@ -39,6 +39,8 @@ void Yhb_SysTick_Init(void)
     }
 }
 
+/*先调用Yhb_SysTick_Init 将systick配置为非中断，
+再调用此函数设置systick计数周期，周期到了标志置起，读取该位会清*/
 void Yhb_Delay_Ms( __IO uint32_t ms)
 {
 	uint32_t i;
